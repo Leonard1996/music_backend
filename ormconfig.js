@@ -2,7 +2,7 @@ require('dotenv').config()
 
 module.exports = {
   "type": "mysql",
-  "host": 'db',
+  "host": '127.0.0.1', // 'db' for docker use
   "port": process.env.DB_PORT,
   "username": process.env.DB_USERNAME,
   "password": process.env.DB_PASSWORD,

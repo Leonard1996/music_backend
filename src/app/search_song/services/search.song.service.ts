@@ -115,7 +115,7 @@ export class SearchSongService {
     )
   }
 
-  public static listSuggestions(userId: number) {
+  public static listSuggestions = (userId: number) => {
     return redisClient.hGetAll(userId.toString())
   }
 }
