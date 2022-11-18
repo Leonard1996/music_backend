@@ -1,12 +1,14 @@
+require('dotenv').config()
+
 module.exports = {
   "type": "mysql",
-  "host": '127.0.0.1',
-  "port": 3306,
-  "username": "admin",
-  "password": "admin321",
-  "database": "music_db",
+  "host": 'db',
+  "port": process.env.DB_PORT,
+  "username": process.env.DB_USERNAME,
+  "password": process.env.DB_PASSWORD,
+  "database": process.env.DB,
   "synchronize": true,
-  "logging": false,
+  "logging": process.env.LOGGING === 'true',
   "entities": ["dist/**/*.entity{.ts,.js}", "src/**/*.entity{.ts,.js}"],
   "migrations": ["dist/migration/**/*.js"],
   "subscribers": ["dist/**/*.subscriber.js"],

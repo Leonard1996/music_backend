@@ -12,7 +12,13 @@ const redis = require('redis')
 
 export let redisClient: any
 ;(async () => {
-  redisClient = redis.createClient()
+  redisClient = redis.createClient({
+    socket: {
+      port: 6379,
+      host: 'redis',
+    },
+    legacyMode: true,
+  })
 
   redisClient.on('error', (error: any) => console.error(`Error : ${error}`))
 

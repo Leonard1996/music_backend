@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb
+    restart: always
+    env_file: ./.env
+    environment:
+      MYSQL_ROOT_PASSWORD: '$DB_PASSWORD'
+      MYSQL_DATABASE: '$DB'
+    ports:
+      - 3306:3306
+
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: music-app-dev
+    depends_on:
+      - db
+      - redis
+    stdin_open: true
+    tty: true
+    ports:
+      - 3001:3001
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+

@@ -77,7 +77,7 @@ export class SearchSongService {
     const albumIdMap = {} as { [id: string]: number }
 
     values.forEach((value) => {
-      const { artistId, albumId } = value
+      const { artistId, albumId, relevance } = value
       if (!artistIdMap[artistId]) {
         artistIdMap[artistId] = 0
       }
@@ -85,8 +85,8 @@ export class SearchSongService {
         albumIdMap[albumId] = 0
       }
 
-      if (artistId) artistIdMap[artistId] += 1
-      if (albumId) albumIdMap[albumId] += 1
+      if (artistId) artistIdMap[artistId] += relevance
+      if (albumId) albumIdMap[albumId] += relevance
     })
 
     return songs.map((song) => {

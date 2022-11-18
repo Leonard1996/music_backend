@@ -1,6 +1,5 @@
 export class CreateFavoriteDto {
-  artist: string
+  artistId: string
   songId: string
-  query: string
   metadata: string
 }
