@@ -19,10 +19,10 @@ export class FavoriteRouter {
       FavoriteController.create,
     ])
 
-    app.patch('/favorites/:favoriteId', [
+    app.delete('/favorites/:favoriteId', [
       AuthenticationMiddleware.hasValidToken,
       AuthenticationMiddleware.isActive,
-      FavoriteController.update,
+      FavoriteController.delete,
     ])
   }
 }

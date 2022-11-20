@@ -4,17 +4,14 @@
     2. download and start redis server on your machine
     3. create an .env file from .env_example
     4. download, install mysql server on your machine and create a db according to env variables
+    5. inside redis.createClient at app.ts file (starting line 15) change host to "127.0.0.1"
+    3. at ormconfig.js change host from 'db' to '127.0.0.1'
     5. npm run start from project root
 
-# Run from docker (not fully working)
-
-    For this version I had not enough time to make it fully functional as I had issues reading
-    from redis data, debugging this took me a lot of time and did not want to stretch the deadline anymore.
+# Run from docker (Updated)
 
     1. create an .env file from .env_example
-    2. uncomment arguments inside redis.createClient at app.ts file (starting line 15)
-    3. at ormconfig.js change host from '127.0.0.1' to 'db'
-    4. run docker-compose up from root of project
+    2. run docker-compose up from root of project (create a db according to your env inside a docker container)
 
 # Archicture and functionalities
 

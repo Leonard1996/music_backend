@@ -32,6 +32,7 @@ export class FavoriteMiddleware {
       artistId: Joi.string().required(),
       songId: Joi.string().required(),
       metadata: Joi.string().required(),
+      albumId: Joi.string().required(),
     })
 
     const result = queryParams.validate(request.body, { abortEarly: false })

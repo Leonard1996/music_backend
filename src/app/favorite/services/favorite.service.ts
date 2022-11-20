@@ -34,14 +34,8 @@ export class FavoriteService {
     return favoriteRepository.save(favorite)
   }
 
-  public static update = (userId: number, id: number) => {
+  public static delete = (userId: number, id: number) => {
     const favoriteRepository = getRepository(Favorite)
-    return favoriteRepository
-      .createQueryBuilder()
-      .update(Favorite)
-      .set({ isDeleted: () => '!isDeleted' })
-      .where('userId = :userId', { userId })
-      .andWhere('id = :id', { id })
-      .execute()
+    return favoriteRepository.delete({ id, userId })
   }
 }

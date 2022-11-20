@@ -12,17 +12,12 @@ const redis = require('redis')
 
 export let redisClient: any
 ;(async () => {
-  redisClient = redis
-    .createClient
-    // uncomment this for docker
-    //   {
-    //   socket: {
-    //     port: 6379,
-    //     host: 'cache',
-    //   },
-    //   legacyMode: true,
-    // }
-    ()
+  redisClient = redis.createClient({
+    socket: {
+      port: 6379,
+      host: 'cache',
+    },
+  })
 
   redisClient.on('error', (error: any) => console.error(`Error : ${error}`))
 

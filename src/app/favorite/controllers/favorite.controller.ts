@@ -29,9 +29,9 @@ export class FavoriteController {
     }
   }
 
-  public static update = async (request: Request, response: Response) => {
+  public static delete = async (request: Request, response: Response) => {
     try {
-      await FavoriteService.update(
+      await FavoriteService.delete(
         response.locals.jwt.id,
         +request.params.favoriteId
       )
