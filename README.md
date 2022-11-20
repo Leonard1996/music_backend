@@ -15,7 +15,7 @@
 
 # Archicture and functionalities
 
-    Services includes are nodejs backend running express server on typescript and TypeOrm for db interactions, redis instance caching all suggestions and is populated asynchronously everytime a new search is made, mysql server as persistance layer having 3 tables (users, searchHistory, favorites).
+    Services included are nodejs backend running express server on typescript and TypeOrm for db interactions, redis instance caching all suggestions and is populated asynchronously everytime a new search is made, mysql server as persistance layer having 3 tables (users, searchHistory, favorites).
 
     Most of api's are self explanatory, with the most complex being 'GET http://localhost:3001/songs?keyword=', as the result given back depends on favorites of the user, a weight is assigned to each song and the songs retrieved from the api are then ordered according to this weight.
 
